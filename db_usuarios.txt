@@ -1,0 +1,4 @@
+Nombre: Carlos
+Apellidos: Lozano
+Email: correo%40correo.com
+Contraseña: 12345
