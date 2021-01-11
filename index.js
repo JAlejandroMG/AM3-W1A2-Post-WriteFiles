@@ -3,7 +3,6 @@ const fs = require('fs');
 const mime = require('mime');
 
 
-
 http.createServer((request, response) => {
 
    if(request.method === "GET"){
@@ -68,7 +67,8 @@ const agregarUsuario = (request) =>{
 
    request.on('end', () => {
       const datos = data.toString();
-      const user = "Nombre: " + datos.split("&")[0].split("=")[1] + "\n" + "Apellidos: " + datos.split("&")[1].split("=")[1] + "\n" + "Email: " + datos.split("&")[2].split("=")[1] + "\n" + "Contraseña: " + datos.split("&")[3].split("=")[1];
+
+      const user = `Nombre: ${datos.split("&")[0].split("=")[1]}\nApellidos: ${datos.split("&")[1].split("=")[1]}\nEmail: ${datos.split("&")[2].split("=")[1]}\nContraseña: ${datos.split("&")[3].split("=")[1]}`;
       
       fs.writeFile("db_usuarios.txt", user, (error) => {
          if(error) {
@@ -82,5 +82,4 @@ const agregarUsuario = (request) =>{
    request.on('error', error => {
          console.log(error);
    });
-
 };
